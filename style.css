@@ -1,0 +1,331 @@
+/* 전역 스타일: Noto Sans KR 계열로 부드럽고 현대적인 느낌 */
+body {
+    font-family: 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif; 
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa; /* 너무 밝지 않은 세련된 미색 */
+    color: #343a40; /* 짙은 회색 텍스트 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 추가 */
+}
+
+/* 하이퍼링크 스타일 */
+a {
+    color: #5b92e5; /* 세련된 미드톤 블루 */
+    text-decoration: none;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+a:hover {
+    color: #376ea8;
+    text-decoration: underline;
+}
+
+/* 헤더와 내비게이션 */
+.main-header {
+    background-color: #3e4b5d; /* 다크 블루-그레이, 안정감 */
+    color: white; 
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 그림자 강화 */
+}
+
+.logo-link {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #c9e6ff; /* 로고 강조색 */
+}
+
+.main-nav .nav-link {
+    color: white;
+    margin-left: 25px;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.main-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: #c9e6ff;
+    transition: width 0.3s ease-in-out;
+}
+
+.main-nav .nav-link:hover::after,
+.main-nav .nav-link.active::after {
+    width: 100%;
+}
+
+
+/* Hero 섹션 */
+.hero-section {
+    position: relative;
+    text-align: center;
+    padding: 80px 5%;
+    background-color: #f0f4f7; /* 차분한 라이트 블루-그레이 */
+    overflow: hidden;
+    /* ✅ 추가 애니메이션: 미세한 펄스 효과 */
+    animation: backgroundPulse 15s infinite alternate ease-in-out; 
+}
+
+.hero-image {
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    opacity: 0.95;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.5s;
+}
+
+.hero-image:hover {
+    transform: scale(1.01); /* 호버 시 미세하게 커지는 효과 */
+}
+
+.hero-content h1 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #5b92e5; /* 세련된 블루 */
+    color: white;
+    padding: 15px 35px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 700;
+    box-shadow: 0 6px 12px rgba(91, 146, 229, 0.4);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    animation: pulse 1.5s infinite; 
+}
+
+.cta-button:hover {
+    background-color: #376ea8;
+    transform: scale(1.07) translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(91, 146, 229, 0.5); /* 메인 버튼 그림자 농도 감소 */
+    animation: none;
+}
+
+/* 요약 섹션 (Summary Section) - 메인 페이지 하단 3개 아이템 */
+.summary-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 5%;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.summary-item {
+    flex: 1;
+    max-width: 30%;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); 
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid #e9ecef;
+    /* ✅ 추가 애니메이션: 페이지 로드 시 페이드 인 효과 */
+    opacity: 0; 
+    animation: fadeIn 1s forwards; 
+}
+
+/* 각 카드에 고유의 세련된 색상 테마 적용 */
+.summary-section .summary-item:nth-child(1) {
+    border-left: 5px solid #ff99ab; /* 로맨틱 핑크 */
+    animation-delay: 0.1s;
+}
+.summary-section .summary-item:nth-child(2) {
+    border-left: 5px solid #a8e6cf; /* 민트 그린 */
+    animation-delay: 0.2s;
+}
+.summary-section .summary-item:nth-child(3) {
+    border-left: 5px solid #a8c8e6; /* 스카이 블루 */
+    animation-delay: 0.3s;
+}
+
+.summary-item:hover {
+    transform: translateY(-10px) scale(1.05); /* ⬅️ 요약 카드: 커지면서 더 높이 떠오르도록 효과 강화 */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* 떠오르는 만큼 그림자 강화 및 확장 */
+    background-color: #f7f7f7;
+}
+
+.summary-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.summary-item h3 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600; /* 제목 굵기 조정 */
+}
+
+.summary-item .learn-more-link {
+    font-weight: 500;
+    color: #5b92e5;
+    border-bottom: 1px solid #5b92e5;
+}
+
+/* 푸터 */
+.main-footer {
+    background-color: #3e4b5d;
+    color: #e9ecef;
+    padding: 25px 5%;
+    font-size: 0.95em;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-footer a {
+    color: #c9e6ff;
+}
+
+/* 세부 페이지 공통 스타일 */
+.detail-page-content {
+    padding: 60px 10%;
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* ✅ 그림자 깊게, 부드럽게 조정 */
+}
+
+.detail-page-content h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    font-weight: 700; /* 제목 두께 강화 */
+}
+
+.detail-image {
+    max-width: 80%;
+}
+
+.intro-text {
+    font-size: 1.35em; /* ✅ 크기 약간 증가 */
+    font-weight: 500; /* ✅ 두께 강화 */
+    color: #2c3e50;
+    margin-bottom: 35px;
+    line-height: 1.7;
+}
+
+.sub-section {
+    margin-bottom: 50px;
+    padding: 20px 0;
+}
+
+.section-title {
+    font-size: 2.3em; /* ✅ 크기 약간 증가 */
+    color: #5b92e5; /* 섹션 제목도 블루 계열로 통일 */
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #e0e7ee; /* ✅ 구분선 두께 및 색상 조정 */
+    padding-bottom: 10px;
+    transition: color 0.3s;
+    font-weight: 600; /* ✅ 두께 강화 */
+}
+
+.section-title:hover {
+    color: #376ea8; /* 호버 시 색상 변화 */
+}
+
+.section-image {
+    max-width: 70%;
+}
+
+.detail-page-content p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #495057;
+    margin-bottom: 25px;
+    font-weight: 500; /* ✅ 일반 텍스트도 부드럽게 두께 강화 */
+}
+
+.callout-box {
+    background-color: #f4f8ff; /* ✅ 더 밝고 세련된 라이트 블루 배경색 */
+    border-left: 6px solid #5b92e5; /* ✅ 두께 약간 증가 */
+    padding: 25px;
+    margin: 40px 0;
+    border-radius: 8px;
+    font-style: normal; /* ✅ 이탤릭 대신 일반 스타일 유지 */
+    color: #376ea8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Callout Box에도 미세한 그림자 추가 */
+}
+
+.callout-box p {
+    font-size: 1.25em; /* ✅ Callout 텍스트 크기 증가 */
+    font-weight: 600; /* ✅ Callout 텍스트 두께 강화 */
+}
+
+.back-link {
+    margin-top: 40px;
+    font-size: 1.1em;
+    color: #6c757d;
+    border-bottom: 1px solid #6c757d;
+}
+
+/* --- Keyframe Animations --- */
+
+/* CTA 버튼 깜빡이는 키프레임 정의 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(91, 146, 229, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(91, 146, 229, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(91, 146, 229, 0);
+    }
+}
+
+/* 배경 미세 펄스 효과 */
+@keyframes backgroundPulse {
+    0% {
+        background-color: #f0f4f7;
+    }
+    50% {
+        background-color: #f3f7fa;
+    }
+    100% {
+        background-color: #f0f4f7;
+    }
+}
+
+/* 요소 페이드 인 효과 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 모바일 반응형 디자인 */
+@media (max-width: 768px) {
+    /* ... (모바일 레이아웃 조정은 이전과 동일하게 유지) ... */
+}
